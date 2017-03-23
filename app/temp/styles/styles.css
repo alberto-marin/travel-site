@@ -376,6 +376,9 @@ img {
   max-width: 100%;
   height: auto;
 }
+a {
+  color: #d59451;
+}
 /* not BEM */
 /*
 .large-hero h1 {
@@ -464,12 +467,20 @@ img {
   overflow: hidden;
   padding-left: 18px;
   padding-right: 18px;
-  max-width: 1200px;
+  max-width: 1236px;
   margin-left: auto;
   margin-right: auto;
 }
 .wrapper--medium {
   max-width: 976px;
+}
+.wrapper--b-margin {
+  margin-bottom: 1rem;
+}
+@media (min-width: 530px) {
+  .wrapper--b-margin {
+    margin-bottom: 3.875rem;
+  }
 }
 /* any wrapper into another wrapper */
 .wrapper .wrapper {
@@ -526,6 +537,9 @@ img {
 .headline--b-margin-large {
   margin-bottom: 1.6em;
 }
+.headline--no-t-margin {
+  margin-top: 0;
+}
 /* 100 / 12 columns = 8.3 */
 .row::after {
   content: "";
@@ -534,20 +548,32 @@ img {
 }
 /* A better way to fix the float problem */
 .row--gutters {
-  padding-right: -65px;
+  margin-right: -65px;
 }
 /* we select all the children */
 .row--gutters > div {
   padding-right: 65px;
 }
+.row__b-margin-until-medium {
+  margin-bottom: 1rem;
+}
 @media (min-width: 800px) {
+  .row__b-margin-until-medium {
+    margin-bottom: 0;/* reset to 0 */
+  }
   .row__medium-4 {
     float: left;
     width: 33.33%;
   }
   .row__medium-8 {
-    float: left;
+    float: right;
     width: 66.66%;
+  }
+  .row__medium-4--larger {
+    width: 37%;
+  }
+  .row__medium-8--smaller {
+    width: 63%;
   }
 }
 /* After float elements
@@ -557,3 +583,15 @@ img {
    clear: both;
  }
  */
+.generic-content-container p {
+  line-height: 1.65;
+  margin: 1.8rem 0;
+}
+@media (min-width: 530px) {
+  .generic-content-container p {
+    font-size: 1.125rem;
+  }
+}
+.generic-content-container p a {
+  font-weight: 700;/* 400 standard */
+}
