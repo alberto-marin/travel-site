@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; /* this way our padding won't get in trouble with the row width */
+}
 body {
   font-size: 'Roboto', sans-serif;
   color: #333;
