@@ -79,44 +79,44 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _jquery = __webpack_require__(1);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-//ES5
-// function Person(fullName, favColor) {
-//   this.name = fullName;
-//   this.FavoriteColor = favColor;
-//   this.greet = function() {
-//     console.log('Hello, my name is ' + this.name + ' and my favorite color is ' + this.FavoriteColor + '.');
-//   }
-// }
-//ES6
-var Person = function () {
-  function Person(fullName, favColor) {
-    _classCallCheck(this, Person);
+var MobileMenu = function () {
+  function MobileMenu() {
+    _classCallCheck(this, MobileMenu);
 
-    this.name = fullName;
-    this.FavoriteColor = favColor;
+    this.siteHeader = (0, _jquery2.default)('.site-header');
+    this.menuIcon = (0, _jquery2.default)('.site-header__menu-icon');
+    this.menuContent = (0, _jquery2.default)('.site-header__menu-content');
+    this.events();
   }
 
-  _createClass(Person, [{
-    key: 'greet',
-    value: function greet() {
-      console.log('Hi there, my name is ' + this.name + ' and my favorite color is ' + this.FavoriteColor + '.');
+  _createClass(MobileMenu, [{
+    key: 'events',
+    value: function events() {
+      // anything between the parentesis of bind will be use as a this in toggleTheMenu
+      this.menuIcon.click(this.toggleTheMenu.bind(this));
+      // now this instance and the toggleTheMenu have the same this value
+    }
+  }, {
+    key: 'toggleTheMenu',
+    value: function toggleTheMenu() {
+      this.menuContent.toggleClass('site-header__menu-content--is-visible');
+      this.siteHeader.toggleClass('site-header--is-expanded');
+      this.menuIcon.toggleClass('site-header__menu-icon--close-x');
     }
   }]);
 
-  return Person;
+  return MobileMenu;
 }();
-//module.exports = Person;
 
-
-exports.default = Person;
-// console.log("HEllo from Person.js")
-//
-// exports.exampleProperty = "Super magical example value.";
-// exports.exampleFunction = function(){
-//   alert("this is an example.")
-// };
+exports.default = MobileMenu;
 
 /***/ }),
 /* 1 */
@@ -10385,54 +10385,36 @@ return jQuery;
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _MobileMenu = __webpack_require__(0);
 
-var _Person2 = __webpack_require__(0);
-
-var _Person3 = _interopRequireDefault(_Person2);
+var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var mobileMenu = new _MobileMenu2.default();
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-// require is from node.js
-var $ = __webpack_require__(1);
-//var Person = require('./modules/Person');
-
-var Adult = function (_Person) {
-  _inherits(Adult, _Person);
-
-  function Adult() {
-    _classCallCheck(this, Adult);
-
-    return _possibleConstructorReturn(this, (Adult.__proto__ || Object.getPrototypeOf(Adult)).apply(this, arguments));
-  }
-
-  _createClass(Adult, [{
-    key: 'payTaxes',
-    value: function payTaxes() {
-      console.log(this.name + " now owes $0 in taxes.");
-    }
-  }]);
-
-  return Adult;
-}(_Person3.default);
-//alert("451116");
-// console.log(Person.exampleProperty);
-// Person.exampleFunction();
-
-var john = new _Person3.default('John Doe', 'red');
-john.greet();
-
-var jane = new Adult('Jane Smith', 'blue');
-jane.greet();
-jane.payTaxes();
-
-$('h1').remove();
+// // require is from node.js
+// var $ = require('jquery');
+// //var Person = require('./modules/Person');
+// import Person from './modules/Person';
+//
+// class Adult extends Person {
+//   payTaxes() {
+//     console.log(this.name + " now owes $0 in taxes.");
+//   }
+// }
+// //alert("451116");
+// // console.log(Person.exampleProperty);
+// // Person.exampleFunction();
+//
+// var john = new Person('John Doe', 'red');
+// john.greet();
+//
+// var jane = new Adult('Jane Smith', 'blue');
+// jane.greet();
+// jane.payTaxes();
+//
+// $('h1').remove();
 
 /***/ })
 /******/ ]);
