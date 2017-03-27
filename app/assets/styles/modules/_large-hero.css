@@ -21,6 +21,7 @@
   /* nested CSS */
   /* &__text-content == .large-hero__text-content */
   &__text-content {
+    padding-top: 88px;
     position: absolute;
     /* Center text-content */
     top: 50%;
@@ -28,6 +29,9 @@
     left: 0;
     width: 100%;
     text-align: center;
+    @mixin atMedium {
+      padding-top: 60px;
+    }
   }
   &__title {
     font-weight: 300;
