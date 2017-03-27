@@ -10352,7 +10352,7 @@ return jQuery;
 
 var $ = __webpack_require__(1);
 var Person = __webpack_require__(0);
-
+alert("451116");
 // console.log(Person.exampleProperty);
 // Person.exampleFunction();
 

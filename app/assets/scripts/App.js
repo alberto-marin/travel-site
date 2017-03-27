@@ -1,6 +1,6 @@
 var $ = require('jquery');
 var Person = require('./modules/Person');
-
+alert("451116");
 // console.log(Person.exampleProperty);
 // Person.exampleFunction();
 
