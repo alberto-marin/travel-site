@@ -79,7 +79,7 @@
     }
   }
   /* Begin Equal Height Rules */
-  &--equal-height-at-medium {
+  .fexbox &--equal-height-at-medium {
     @mixin atMedium {
       display: flex;
     }
@@ -88,7 +88,7 @@
       display: flex;
     }
   }
-  &--equal-height-at-large {
+  .fexbox &--equal-height-at-large {
     @mixin atLarge {
       display: flex;
     }
