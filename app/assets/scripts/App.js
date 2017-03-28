@@ -1,12 +1,14 @@
 import MobileMenu from './modules/MobileMenu';
 import RevealOnScroll from './modules/RevealOnScroll';
 import $ from 'jquery';
+import StickyHeader from './modules/StickyHeader';
 
 var mobileMenu = new MobileMenu();
 
 new RevealOnScroll($('.feature-item'), '85%'); // for feature items
 new RevealOnScroll($('.testimonial'), '60%'); // for testimonials
 
+var stickyHeader = new StickyHeader();
 // // require is from node.js
 // var $ = require('jquery');
 // //var Person = require('./modules/Person');
