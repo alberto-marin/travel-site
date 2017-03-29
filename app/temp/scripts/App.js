@@ -11253,6 +11253,7 @@ var RevealOnScroll = function () {
       var that = this; // this is pointing to our constructor
       this.itemsToReveal.each(function () {
         var currentItem = this;
+
         new Waypoint({
           element: currentItem,
           handler: function handler() {
@@ -11312,12 +11313,15 @@ var StickyHeader = function () {
     this.addSmoothScrolling();
     this.refreshWaypoints();
   }
+  // this exist in a global scope, so there is no need to update the RevealOnScroll.js
+  // http://api.jquery.com/load/
+
 
   _createClass(StickyHeader, [{
     key: 'refreshWaypoints',
     value: function refreshWaypoints() {
-      this.lazyImages.load(function () {
-        Waypoint.resfreshAll(); // this exist in a global scope, so there is no need to update the RevealOnScroll.js
+      this.lazyImages.load([this.headerLinks, '#'], function () {
+        Waypoint.refreshAll();
       });
     }
   }, {
@@ -11357,7 +11361,6 @@ var StickyHeader = function () {
           },
           offset: '18%'
         });
-
         new Waypoint({
           element: currentPageSection,
           handler: function handler(direction) {
@@ -11736,6 +11739,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 "use strict";
 
 
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
 var _MobileMenu = __webpack_require__(2);
 
 var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
@@ -11743,10 +11750,6 @@ var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 var _RevealOnScroll = __webpack_require__(4);
 
 var _RevealOnScroll2 = _interopRequireDefault(_RevealOnScroll);
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
 
 var _StickyHeader = __webpack_require__(5);
 
@@ -11759,13 +11762,14 @@ var _Modal2 = _interopRequireDefault(_Modal);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _MobileMenu2.default();
-
-new _RevealOnScroll2.default((0, _jquery2.default)('.feature-item'), '85%'); // for feature items
-new _RevealOnScroll2.default((0, _jquery2.default)('.testimonial'), '60%'); // for testimonials
-
+var features = (0, _jquery2.default)('.feature-item');
+var testimonials = (0, _jquery2.default)('.testimonial');
 var stickyHeader = new _StickyHeader2.default();
-
 var modal = new _Modal2.default();
+
+new _RevealOnScroll2.default(features, '85%');
+new _RevealOnScroll2.default(testimonials, '60%');
+
 // // require is from node.js
 // var $ = require('jquery');
 // //var Person = require('./modules/Person');

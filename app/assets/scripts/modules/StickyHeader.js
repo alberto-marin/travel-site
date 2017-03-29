@@ -14,10 +14,11 @@ class StickyHeader {
     this.addSmoothScrolling();
     this.refreshWaypoints();
   }
-
+// this exist in a global scope, so there is no need to update the RevealOnScroll.js
+// http://api.jquery.com/load/
   refreshWaypoints() {
-    this.lazyImages.load(function() {
-      Waypoint.resfreshAll(); // this exist in a global scope, so there is no need to update the RevealOnScroll.js
+    this.lazyImages.load([this.headerLinks, '#'], function() {
+      Waypoint.refreshAll();
     });
   }
 
@@ -54,7 +55,6 @@ class StickyHeader {
         },
         offset: '18%'
       });
-
       new Waypoint({
         element: currentPageSection,
         handler: function(direction) {
@@ -68,7 +68,6 @@ class StickyHeader {
       });
     });
   }
-
 }
 
 export default StickyHeader;

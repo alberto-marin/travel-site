@@ -8,6 +8,7 @@ class RevealOnScroll {
     this.hideInitially();
     this.createWaypoints();
   }
+
   hideInitially(){
     this.itemsToReveal.addClass('reveal-item');
   }
@@ -16,6 +17,7 @@ class RevealOnScroll {
     var that = this; // this is pointing to our constructor
     this.itemsToReveal.each(function() {
       var currentItem = this;
+
       new Waypoint({
         element: currentItem,
         handler: function() {
@@ -25,6 +27,7 @@ class RevealOnScroll {
       });
     });
   }
+
 }
 
 export default RevealOnScroll;

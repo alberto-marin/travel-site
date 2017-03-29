@@ -7,6 +7,7 @@ class Modal {
     this.closeModalButton = $('.modal__close');
     this.events();
   }
+  
   events(){
     // clicking the open modal button
     this.openModalButton.click(this.openModal.bind(this));
